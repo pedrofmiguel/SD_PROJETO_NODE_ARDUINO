@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Registo dos lugares de Estacionamento</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google Font-->
+    <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <!-- Custom JS -->
+    <script src="controller/main.js"></script>
+</head>
+
+<body>
+    <h1 class="title">Registo dos lugares de Estacionamento</h1>
+
+    <div class="content">
+        <p>
+
+            <P>Selecionar O Parque </P>
+            <select id="parqueSel">
+                <option value="1">Parque 1</option>
+                <option value="2">Parque 2</option>
+            </select>
+            <br>
+            <br>
+            <!-- Butões para ligar o código do arduino -->
+            <button type="button" id="startButton" class="btn btn-dark" onclick="ard_start()">Começar a Captura</button>
+            <button type="button" id="stopButton" class="btn btn-danger" onclick="ard_stop()">Parar o Arduino</button>
+
+
+            <!-- <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#listRecords"
+                aria-expanded="false" aria-controls="listRecords" onclick="orderToCreateTable()">
+                View/Edit Records
+            </button> -->
+        </p>
+
+
+</body>
+<script> 
+// -- Posto aqui para não crashar o server -- 
+window.onload = function(){
+    document.getElementById("stopButton").style.display = "none"
+}
+</script>
+</html>
