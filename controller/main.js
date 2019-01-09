@@ -33,18 +33,22 @@ function xhrError() {
  * @param {*} value 
  * Callback é o alerta
  * @param {*} callback
- * Parque vai ser o valor passado pelo select do input  
- * @param {*} parque 
+ * ident vai ser o valor passado pelo select do input  
+ * @param {*} ident
  */
-function order(url, value, callback, parque) {
-    console.log(url)
-    console.log(value)
-    console.log(callback)
-    console.log(parque)
-    console.log(arguments)
+function order(url, action, callback, ident) {
+    console.log("URL:" + url)
+    console.log("Action:" + action)
+    console.log("Callback:" + callback)
+    console.log("Parque:" + ident)
+
+    // console.log(arguments)
+    /* 
+     data é o obj que vais ser enviado para a bd 
+    */
     var data = {};
-    data.action = value;
-    data.parque = parque;
+    data.action = action;
+    data.ident = ident;
     var json = JSON.stringify(data);
     var xhr = new XMLHttpRequest();
     xhr.callback = callback;
@@ -63,20 +67,14 @@ se o value da função for 1 ele assume que está "ligado"
 se o value da função for 0 ele assume que está "desligado"
 
 */
-function ard_start() {
-    var parque = document.getElementById('parqueSel').value;
 
-    order('http://localhost:3000/configs/', 1, alertStart, parque)
-    document.getElementById("startButton").style.display = "none";
-    document.getElementById("stopButton").style.display = "inline";
-}
 
-function ard_stop() {
-    var parque = document.getElementById('parqueSel').value;
-
-    order('http://localhost:3000/configs/', 0, alertStop,parque)
-    document.getElementById("startButton").style.display = "inline";
-    document.getElementById("stopButton").style.display = "none";
+function ard() {
+    var action = document.getElementById('slc_value').value
+    var ident = document.getElementById('slc_parque').value;
+    order('http://localhost:3000/configs/', action, alertStop, ident)
+    // document.getElementById("startButton").style.display = "inline";
+    // document.getElementById("stopButton").style.display = "none";
 }
 
 
