@@ -10,7 +10,7 @@ var Schema = mongoose.Schema;
 const Arduino = new Schema({
     action: {type: String, required: true},
     created_at: {type: Date, default: Date.now},
-    ident:{type:String, required:true}
+    macAddress:{type:String, required:true}
 });
 
-module.exports = mongoose.model('Record', Arduino);
+module.exports = mongoose.model('arduino', Arduino);

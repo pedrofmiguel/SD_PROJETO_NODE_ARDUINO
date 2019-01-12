@@ -7,10 +7,9 @@
 */
 //xhr-> XMLHttpRequest 
 // --  Função para Escondero btão de HTML -- 
-
+//var Particles = require('particlesjs')
 //document.getElementById("stopButton").style.display = "none";
-
-
+ 
 
 
 
@@ -33,14 +32,14 @@ function xhrError() {
  * @param {*} value 
  * Callback é o alerta
  * @param {*} callback
- * ident vai ser o valor passado pelo select do input  
- * @param {*} ident
+ * arduino vai ser o valor passado pelo select do input  
+ * @param {*} macAddress
  */
-function order(url, action, callback, ident) {
+function order(url, action, callback, macAddress) {
     console.log("URL:" + url)
     console.log("Action:" + action)
     console.log("Callback:" + callback)
-    console.log("Parque:" + ident)
+    console.log("Parque:" + macAddress)
 
     // console.log(arguments)
     /* 
@@ -48,7 +47,7 @@ function order(url, action, callback, ident) {
     */
     var data = {};
     data.action = action;
-    data.ident = ident;
+    data.macAddress = macAddress;
     var json = JSON.stringify(data);
     var xhr = new XMLHttpRequest();
     xhr.callback = callback;
@@ -69,10 +68,13 @@ se o value da função for 0 ele assume que está "desligado"
 */
 
 
+
+
+
 function ard() {
     var action = document.getElementById('slc_value').value
-    var ident = document.getElementById('slc_parque').value;
-    order('http://localhost:3000/configs/', action, alertStop, ident)
+    var macAddress = document.getElementById('slc_parque').value;
+    order('http://localhost:3000/configs/', action, alertStop, macAddress)
     // document.getElementById("startButton").style.display = "inline";
     // document.getElementById("stopButton").style.display = "none";
 }

@@ -10,8 +10,6 @@ module.exports = function (app) {
   //     .get(esmad_controller.list_record)
   //     .put(esmad_controller.update_record)
   //     .delete(esmad_controller.delete_record);
-  app.route('')
-    .get(arduino_controller.populate)
 
 
   app.route('/configs/')

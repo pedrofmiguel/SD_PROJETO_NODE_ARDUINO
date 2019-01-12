@@ -36,10 +36,10 @@
         <br>
         <div class="content">
             <h1>Selecionar o Arduino</h1>
-            <div class="select">
-                <select name="slct" id="slc_parque" onchange="ard()">
+            <div class="select" id="result">
+                <!-- <select name="slct" id="slc_parque" onchange='ard()'>
                     <option value="1">Arduino 1 </option>
-                </select>
+                </select> -->
             </div>
         </div>
 
@@ -65,18 +65,18 @@
     <br>
     <canvas class="background"></canvas>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+    <script src="./controller/fetch.controller.js"></script>
 </body>
 <script>
     //-- teste com o pacote de particulas -- 
-
     window.onload = function () {
-        var particles = Particles.init({
-            selector: '.background',
-            color: ['#DA0463', '#404B69', '#DBEDF3'],
-            connectParticles: true
-        });
+    ardfetch()
+    var particles = Particles.init({
+        selector: '.background',
+        color: ['#DA0463', '#404B69', '#DBEDF3'],
+        connectParticles: true
+    });
 
-    }
     // -- Posto aqui para não crashar o server -- 
     document.getElementById("btnstart").addEventListener("click", function () {
         ard()
@@ -84,6 +84,7 @@
         //document.getElementById('btnstop').style.display = "inline"
     })
 
+}
 </script>
 
 </html>

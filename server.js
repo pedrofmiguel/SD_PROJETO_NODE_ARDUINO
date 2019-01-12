@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const app = express()
 var port = process.env.PORT || 3000
 require('./controller/main.js')
+require('./controller/fetch.controller.js')
 Record = require('./model/arduino.model.js'),
 /* 
 Nota do código :  
